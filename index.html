@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+if(localStorage.getItem("loggedIn") !== "true"){
+    window.location.href = "login.html";
+}
+</script>
 </head>
 <body>
+  <button onclick="logout()">Logout</button>
+  s
     <div class="container">
       <h1>Task Manager</h1>
       <p class="paragraph">Streamline your day with purpose</p>
@@ -15,7 +22,15 @@
        <div class="form">
          <input type="text" id="title" placeholder="Add a new task">
 
-         <input type="text" id="duration" placeholder="Duration (e.g 2hrs)">
+         <label><strong>Duration</strong></label>
+
+         <input type="date" id="startDate">
+         <input type="time" id="startTime">
+
+         <input type="date" id="endDate">
+         <input type="time" id="endTime">
+
+         <input type="text" id="duration" placeholder="Optional (e.g 2hrs 30mins)">
 
        <div class="star-rating">
          <input type="radio" name="priority" id="star5" value="5"><label for="star5">&#9733</label>
@@ -25,11 +40,10 @@
          <input type="radio" name="priority" id="star1" value="1"><label for="star1">&#9733</label>
 
         </div>
-        <input type="date" id="deadline">
         <textarea id="description" placeholder="Description"></textarea>
         <button id="addbtns">Add Task</button>
      </div>
-    
+          
       <div id="taskList"></div>
 
      <script src="script.js"></script>
